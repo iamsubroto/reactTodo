@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Greeting from './Component/Greeting'
+import Todos from './Component/Todos'
+import ActionTodos from './Component/ActionTodos'
+import AppProvider from './context'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <AppProvider>
+        <div className="App d-flex justify-content-center pt-3">
+          <div className="card shadow-lg" style={{width: "30%"}}>
+          <div className="card-header bg-dark">
+            <Greeting />
+          </div>
+          <div className="card-body">
+              <Todos />
+              <ActionTodos />
+          </div>
+          </div>
+        </div>
+      </AppProvider>
     );
   }
 }
